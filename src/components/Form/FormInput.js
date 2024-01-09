@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import "./FormInput.css";
 import Card from "../Card/Card";
