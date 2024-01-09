@@ -9,6 +9,7 @@ const FormInput = (props) => {
 
   const [username, setUser] = useState("");
   const [age, setAge] = useState("");
+  const [clgName, setClgName] = useState("");
   const uniqueId = Math.random();
 
   const nameChangeHandler = (event) => {
@@ -18,12 +19,16 @@ const FormInput = (props) => {
   const ageChangeHandler = (event) => {
     setAge(event.target.value);
   };
+  
+  const clgChangeHandler = (event) => {
+    setClgName(event.target.value);
+  };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
 
     //if trigger = true it'll show the popup as per the condition.
-    if (username === "" || age === "") {
+    if (username === "" || age === "" || clgName === "") {
       setTrigger(true);
     
     }
@@ -36,12 +41,14 @@ const FormInput = (props) => {
         key: uniqueId,
         name: username,
         age: age,
+        clgName: clgName
       };
 
       props.newUserObj(newUser);
 
       setUser("");
       setAge("");
+      setClgName("");
     }
   };
 
@@ -78,6 +85,17 @@ const FormInput = (props) => {
             className="input"
             value={age}
             onChange={ageChangeHandler}
+          />
+          <br />
+          <br />
+          <label htmlFor="clgname">College Name:</label>
+          <br />
+          <input
+            type="text"
+            name="clgname"
+            className="input"
+            value={clgName}
+            onChange={clgChangeHandler}
           />
           <br />
           <Button type="submit" className="button">

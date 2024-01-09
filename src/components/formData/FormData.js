@@ -13,7 +13,10 @@ function FormData(props){
         <Card className="form-data">
                 {newuserarr.map((values) => (
                 <>
-                    <h3>{values.name} and age is {values.age}</h3><hr />      
+                    <h2>Username: {values.name}</h2> 
+                    <h3>Age: {values.age}</h3>
+                    <h3>College: {values.clgName}</h3>
+                    <hr />      
                 </>
                 ))}
         </Card>
