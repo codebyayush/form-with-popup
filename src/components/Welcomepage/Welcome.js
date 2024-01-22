@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from '../Button/Button'
+import AuthContext from '../AuthContext/auth-context'
 
 const Welcome = (props) => {
 

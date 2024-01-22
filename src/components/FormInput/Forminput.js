@@ -1,6 +1,6 @@
-import React, { useReducer, useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import Button from "../Button/Button";
-import Popup from "../Popup/Popup";
+import AuthContext from "../AuthContext/auth-context";
 
 //reducers
 const emailReducer = (state, action) => {
@@ -36,7 +36,8 @@ const passwordReducer = (state, action) => {
 
 export default function Forminput(props) {
   const [trigger, setTrigger] = useState(false);
-
+  const ctx = useContext(AuthContext)
+  
   const [validateForm, setValidForm] = useState(false);
   const [emailState, dispatchEmail] = useReducer(emailReducer, {value: '', isValid: false})
   const [ageState, dispatchAge] = useReducer(ageReducer, {value: '', isValid: false})
@@ -92,10 +93,6 @@ export default function Forminput(props) {
     }
   };
 
-  const loginHandler = () => {
-      props.isLoggedin(true)
-  }
-
   return (
     <> 
       <>
@@ -144,7 +141,7 @@ export default function Forminput(props) {
             placeholder="password"
           />
         </div>
-        <Button type="submit" classname="button m-3" disabled={!validateForm} onClickHandler={loginHandler}>
+        <Button type="submit" classname="button m-3" disabled={!validateForm} onClickHandler={ctx.onLogin}>
           Login
         </Button> 
       </form>
