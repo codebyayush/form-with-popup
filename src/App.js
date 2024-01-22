@@ -14,7 +14,7 @@ const App = () => {
   }
 
   return (
-    <AuthContext.Provider value={{isLoggedIn: isLoggedin}}>
+    <AuthContext.Provider value={{isLoggedIn: isLoggedin, onLogout: logoutHandler}}>
       <Navbar logoutHandler={logoutHandler}/>
       {!isLoggedin && <Forminput isLoggedin={(bool) => setisLoggedin(bool)}/>}
       {isLoggedin && <Welcome logoutHandler={() => logoutHandler}/>}

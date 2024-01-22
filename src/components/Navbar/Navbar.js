@@ -1,12 +1,14 @@
+import { useContext } from "react";
 import React from "react";
 import AuthContext from "../AuthContext/auth-context";
 
 const Navbar = (props) => {
-  return (
 
-    <AuthContext.Consumer>
-      {(ctx) => {
-        return (
+  //removed AuthContext.consumer instead of it, we'll make use of useContext.
+  //it's more elegant
+  const ctx = useContext(AuthContext)
+
+  return (
           <nav
             className={`navbar navbar-expand-lg ${
               ctx.isLoggedIn ? "navbar-dark bg-success" : "navbar-dark bg-dark"
@@ -32,7 +34,7 @@ const Navbar = (props) => {
                   <li className="nav-item m-2">
                     <button
                       className="btn btn-secondary"
-                      onClick={props.logoutHandler}
+                      onClick={ctx.onLogout}
                       style={{transition: '0.7s'}}
                     >
                       Logout
@@ -42,9 +44,6 @@ const Navbar = (props) => {
               </ul>
           </nav>
         );
-      }}
-    </AuthContext.Consumer>
-  );
-};
-
+}
+  
 export default Navbar;
