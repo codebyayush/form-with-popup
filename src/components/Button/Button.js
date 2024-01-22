@@ -1,12 +1,18 @@
-import React from 'react';
-import './Button.css';
+import React from "react";
+import "./Button.css";
 
-const Button = props => {
+export default function Button(props) {
   return (
-    <button type={props.type} className={props.className} onClick={props.onclickfun}>
-      {props.children}
-    </button>
+    <>
+      <button
+        className={props.classname}
+        type={props.type}
+        onClick={props.onClickHandler}
+        disabled={props.disabled}
+        style={{transition: '0.7s'}}
+      >
+        {props.children}
+      </button>
+    </>
   );
-};
-
-export default Button;
+}

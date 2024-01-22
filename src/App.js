@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import "./App.css";
-import FormInput from "./components/Form/FormInput";
-import FormData from "./components/formData/FormData";
-
-//rfce to create a new component.
+import Forminput from "./components/FormInput/Forminput";
+import Navbar from "./components/Navbar/Navbar";
+import AuthContext from "./components/AuthContext/auth-context";
+import Welcome from "./components/Welcomepage/Welcome";
 
 
 const App = () => {
-  const [userObj, setuserObj] = useState([]);
+  const [isLoggedin, setisLoggedin] = useState(false);
 
-  const newUserHandler = (newuserObj) => {
-    setuserObj((prevUser) => [...prevUser, { ...newuserObj }]);
-    console.log(userObj);
-  };
+  const logoutHandler = () => {
+        setisLoggedin(false)
+  }
 
   return (
-    <>
-      <FormInput newUserObj={newUserHandler} />
-      <br />
-      <FormData newUser={userObj} />
-    </>
+    <AuthContext.Provider value={{isLoggedIn: isLoggedin}}>
+      <Navbar logoutHandler={logoutHandler}/>
+      {!isLoggedin && <Forminput isLoggedin={(bool) => setisLoggedin(bool)}/>}
+      {isLoggedin && <Welcome logoutHandler={() => logoutHandler}/>}
+    </AuthContext.Provider>
   );
-};
+}; 
 
 export default App;

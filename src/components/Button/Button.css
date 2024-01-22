@@ -1,47 +1,44 @@
 .button {
-  font: inherit;
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #8b005d;
-  color: white;
-  background: #8b005d;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
-  cursor: pointer;
-  border-radius: 12px;
-  transition: 0.5s;
-}
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #e1e9ff;
+    color: rgb(255, 255, 255);
+    background: #3265ff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.7s;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:hover{
+    background: #00406e;
+    border-color: #00406e;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+    transition: 0.7s;
 
-.button:focus {
-  outline: none;
-}
+  }
+  
+  .button.invalid{
+    background-color:  rgb(197, 54, 54);
+    filter:blur(1px)
+  }
+  
+  .button.invalid-one:active{
+    background-color: rgb(197, 54, 54);
+  }
 
-.button:hover{
-  color: black;
-  background: #8b005d17;
-  border-color: #a70070;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
-}
+  .button:disabled{
+      background-color: rgb(71, 71, 71);
+      border-color: grey;
+      transition: 0.7s;
 
-.popup-button{
-  font: inherit;
-  font-weight: 800;
-  position: absolute;
-  top: 120px;
-  right: 10px;
-  bottom: auto;
-
-  padding: 0.5rem 1.5rem;
-  border: 1px solid #8b005d;
-  color: white;
-  background: #8b005d;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
-  cursor: pointer;
-  border-radius: 12px;
-  transition: 0.5s;
-}
-
-.popup-button:hover{
-  color: black;
-  background: #8b005d17;
-  border-color: #a70070;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+  }
+  .button:disabled:hover{
+    background-color: rgb(147, 147, 147);
+    border-color: grey;
+    transition: 0.7s;
 }
